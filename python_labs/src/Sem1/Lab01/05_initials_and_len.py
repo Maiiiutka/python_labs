@@ -1,0 +1,6 @@
+full_name = input("ФИО: ")
+cleaned_name = ' '.join(full_name.split())
+words = cleaned_name.split()
+initials = ''.join(word[0].upper() for word in words)
+print(f"Инициалы: {initials}.")
+print(f"Длина (символов): {len(cleaned_name)}")
