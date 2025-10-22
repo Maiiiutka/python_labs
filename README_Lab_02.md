@@ -284,3 +284,4 @@ print(format_record(("  сидорова  анна   сергеевна ", "ABB-
 
 <img width="1091" height="870" alt="image" src="https://github.com/user-attachments/assets/051a723b-a052-4c27-84ce-14f7fee67314" />
 
+---
