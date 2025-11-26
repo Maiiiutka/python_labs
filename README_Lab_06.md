@@ -1,4 +1,5 @@
-###Пример 1. Подкоманды в одном CLI
+
+### Пример 1. Подкоманды в одном CLI
 
 ```
 import argparse
@@ -103,7 +104,7 @@ if __name__ == "__main__":
     main()
 ```
 
-####Пояснение
+#### Пояснение
 
 Подкоманда cat: --input - обязательный аргумент, указывающий на входной файл. -n - опция, при указании которой нужно выводить номера строк.
 
@@ -114,33 +115,38 @@ if __name__ == "__main__":
 Примечание: в подкоманде stats слова следует считать в нижнем регистре, чтобы регистр не влиял на подсчет.
 
 
-####Пример вызова и вывода:
+#### Пример вызова и вывода:
 
 
 cat --input file.txt -n 1: первая строка 2: вторая строка
 
 stats --input file.txt --top 3 слово1: 10 слово2: 5 слово3: 3
 
-######Дополнительно: обработать возможные ошибки (например, файл не найден). В случае ошибки вывести сообщение и завершить программу.
+###### Дополнительно: обработать возможные ошибки (например, файл не найден). В случае ошибки вывести сообщение и завершить программу.
 
 Или более подробно
 Get-ChildItem "" 2) Создала файл cli_text.py @" import argparse from collections import Counter import os import sys
 
+```
 def read_file(file_path): if not os.path.exists(file_path): raise FileNotFoundError(f"Файл {file_path} не найден") with open(file_path, 'r', encoding='utf-8') as f: return f.readlines()
 
 def cat_command(input_file, number_lines=False): lines = read_file(input_file) for i, line in enumerate(lines, 1): if number_lines: print(f"{i:6d}\t{line.rstrip()}") else: print(line.rstrip())
 
 def stats_command(input_file, top_n=5): lines = read_file(input_file) words = [] for line in lines: line_words = line.strip().lower().split() cleaned_words = [word.strip('.,!?;:"()[]') for word in line_words] words.extend(cleaned_words)
 
+```
 words = [word for word in words if word]
 counter = Counter(words)
 most_common = counter.most_common(top_n)
 
 print(f"Топ-{top_n} самых частых слов:")
+```
+
 for i, (word, count) in enumerate(most_common, 1):
     print(f"{i:2d}. {word:<15} {count:>3} раз(а)")
 def main(): parser = argparse.ArgumentParser(description="CLI утилиты") subparsers = parser.add_subparsers(dest="command", required=True)
 
+```
 cat_parser = subparsers.add_parser("cat", help="вывести содержимое файла")
 cat_parser.add_argument("--input", required=True)
 cat_parser.add_argument("-n", action="store_true")
@@ -158,6 +164,8 @@ try:
         stats_command(args.input, args.top)
 except Exception as e:
     print(f"Ошибка: {e}")
+```
+
 if name == "main": main() "@ | Out-File -FilePath "cli_text.py" -Encoding UTF8 3) Создала файл example.txt @" hello world hello test this is a test file hello again world testing one two three "@ | Out-File -FilePath "example.txt" -Encoding UTF8 4) Проверила, что файлы созданы. ls 5) Запустила команды:
 
 Проверила справку
