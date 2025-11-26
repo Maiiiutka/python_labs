@@ -127,7 +127,6 @@ stats --input file.txt --top 3 слово1: 10 слово2: 5 слово3: 3
 Или более подробно
 Get-ChildItem "" 2) Создала файл cli_text.py @" import argparse from collections import Counter import os import sys
 
-```
 def read_file(file_path): if not os.path.exists(file_path): raise FileNotFoundError(f"Файл {file_path} не найден") with open(file_path, 'r', encoding='utf-8') as f: return f.readlines()
 
 def cat_command(input_file, number_lines=False): lines = read_file(input_file) for i, line in enumerate(lines, 1): if number_lines: print(f"{i:6d}\t{line.rstrip()}") else: print(line.rstrip())
