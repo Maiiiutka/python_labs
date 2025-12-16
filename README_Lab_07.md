@@ -200,12 +200,12 @@ normalize: Приводит к нижнему регистру и удаляет
 tokenize: Разбивает текст на слова, удаляя пунктуацию и специальные символы.
 top_n: При отрицательных значениях n возвращает какие-то элементы (возможно, все или по модулю n).
 
+---
 Screen
-
-```
+---
 <img width="654" height="252" alt="image" src="https://github.com/user-attachments/assets/8824d681-b407-4040-a88b-640677b6535e" />
 <img width="898" height="189" alt="image" src="https://github.com/user-attachments/assets/bf4cf6a4-1ef2-4e7b-a645-b423bca6e9eb" />
-```
+
 
 ### B. Тесты для `src/lab05/json_csv.py`
 
@@ -557,12 +557,12 @@ if __name__ == "__main__":
 json_to_csv не допускает пустые массивы JSON.
 csv_to_json не допускает CSV файлы без данных (только с заголовком).
 Boolean значения преобразуются в строки "True"/"False" (с большой буквы).
-
+---
 Screen
-```
+---
 <img width="787" height="196" alt="image" src="https://github.com/user-attachments/assets/efa06a4d-a781-4c1e-819f-07d9c3223d05" />
 <img width="888" height="157" alt="image" src="https://github.com/user-attachments/assets/34269595-fac2-49c4-809e-fc107a6b76af" />
-```
+
 
 ### C. Стиль кода (`black`)
 
